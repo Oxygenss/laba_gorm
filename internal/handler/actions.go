@@ -4,14 +4,14 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/Oxygenss/laba_gorm/internal/database"
 	"github.com/Oxygenss/laba_gorm/internal/models"
+	"github.com/Oxygenss/laba_gorm/internal/repository"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 )
 
 func GetAll(c *gin.Context) {
-	students, err := database.GetAll()
+	students, err := repository.GetAll()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": errors.Wrap(err, "get all handler").Error(),
@@ -33,7 +33,7 @@ func CreateStudent(c *gin.Context) {
 		return
 	}
 
-	err = database.CreateStudent(&student)
+	err = repository.CreateStudent(&student)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "create student"})
 		return
@@ -51,7 +51,7 @@ func DeleteStudent(c *gin.Context) {
 		return
 	}
 
-	if err := database.DeleteStudent(id); err != nil {
+	if err := repository.DeleteStudent(id); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "delete student"})
 		return
 	}

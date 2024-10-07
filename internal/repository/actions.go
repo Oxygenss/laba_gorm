@@ -1,4 +1,4 @@
-package database
+package repository
 
 import (
 	"github.com/Oxygenss/laba_gorm/internal/models"

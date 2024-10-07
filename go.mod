@@ -1,6 +1,6 @@
 module github.com/Oxygenss/laba_gorm
 
-go 1.21.10
+go 1.23.2
 
 require (
 	github.com/bytedance/sonic v1.12.3 // indirect

@@ -1,4 +1,4 @@
-package database
+package repository
 
 import (
 	"github.com/pkg/errors"
@@ -9,7 +9,7 @@ import (
 )
 
 func Init() (*gorm.DB, error) {
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("database/students.db"), &gorm.Config{})
 	if err != nil {
 		return nil, errors.Wrap(err, "init db")
 	}
@@ -19,7 +19,7 @@ func Init() (*gorm.DB, error) {
 }
 
 func Connection() (*gorm.DB, error) {
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("database/students.db"), &gorm.Config{})
 	if err != nil {
 		return nil, errors.Wrap(err, "init db")
 	}
