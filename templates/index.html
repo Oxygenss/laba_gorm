@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о студентах</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Информация о студентах:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ФИО</th>
+                <th>Номер зачетной книжки</th>
+                <th>Дата рождения</th>
+                <th>Дата поступления</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .students}}
+                <tr>
+                    <td>{{.ID}}</td>
+                    <td>{{.FIO}}</td>
+                    <td>{{.GradeBook}}</td>
+                    <td>{{.Birthday}}</td>
+                    <td>{{.StartDay}}</td>
+                    <td>
+                        <form action="/DeleteStudent/{{.ID}}" method="post" style="display:inline;">
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            {{end}}
+        </tbody>
+    </table>
+
+    <form action="/CreateStudent" method="post">
+        <input type="text" name="FIO" placeholder="ФИО" required>
+        <input type="number" name="GradeBook" placeholder="Зачётка" required min="0">
+        <input type="date" name="Birthday" placeholder="Дата рождения" required>
+        <input type="date" name="StartDay" placeholder="Дата поступления" required>
+        <button type="submit">Добавить студента</button>
+    </form>
+
+</body>
+</html>
