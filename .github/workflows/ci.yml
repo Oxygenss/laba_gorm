@@ -69,5 +69,5 @@ jobs:
 
       - name: Verify Docker image
         run: |
-          docker run --name=app -p 8080:8080 go-app
+          docker run -d --name=app -p 8080:8080 go-app
           docker ps -a
