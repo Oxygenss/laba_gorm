@@ -20,6 +20,24 @@
 </head>
 <body>
     <h1>Информация о студентах:</h1>
+
+    <!-- Форма для фильтрации студентов -->
+    <form action="/FilterStudents" method="post">
+        <label for="minAge">Минимальный возраст:</label>
+        <input type="number" name="minAge" id="minAge" placeholder="Минимальный возраст" min="0">
+        
+        <label for="maxAge">Максимальный возраст:</label>
+        <input type="number" name="maxAge" id="maxAge" placeholder="Максимальный возраст" min="0">
+
+        <label for="Before">Поступившие до:</label>
+        <input type="date" name="enrollmentBefore" id="enrollmentBefore">
+
+        <label for="After">Поступившие после:</label>
+        <input type="date" name="enrollmentAfter" id="enrollmentAfter">
+
+        <button type="submit">Фильтровать</button>
+    </form>
+
     <table>
         <thead>
             <tr>
