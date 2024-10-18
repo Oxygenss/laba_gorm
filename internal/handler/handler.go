@@ -6,8 +6,8 @@ import (
 
 func InitRoutes() *gin.Engine {
 	r := gin.Default()
-	r.LoadHTMLGlob("templates/*")
-	//router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
+	//r.LoadHTMLGlob("/")
+	r.LoadHTMLFiles("index.html")
 
 	r.GET("/", GetAll)
 	//r.POST("/FilterStudents", FilterStudents)
