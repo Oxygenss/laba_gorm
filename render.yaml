@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: my-go-app  # Укажите имя вашего приложения
+    env: go           # Укажите среду выполнения (Go)
+    region: oregon    # Выберите регион, например, oregon или другой по вашему выбору
+    plan: starter     # Выберите тарифный план, например, starter
+    numInstances: 1   # Количество экземпляров
+    buildCommand: go build -o ./bin/app cmd/app/main.go  # Команда для сборки приложения
+    startCommand: ./bin/app  # Команда для запуска приложения
